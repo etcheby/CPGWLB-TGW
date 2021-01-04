@@ -1,9 +1,9 @@
 terraform {
   backend "remote" {
-    organization = "pradel"
+    organization = ""
 
     workspaces {
-      name = "GWLB-TGW"
+      name = ""
     }
   }
 }
