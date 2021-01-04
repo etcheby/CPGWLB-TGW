@@ -14,27 +14,27 @@ resource "aws_cloudformation_stack" "cpgwlb" {
 
   parameters = {
 
- # VPC CONFIGURATION PARAMETERS - Only using AZ1 and AZ2.Please uncomment parameters for AZ3&AZ4 subnet. Enter values in variables.tf
+ # VPC CONFIGURATION PARAMETERS - Using 2 AZs only.Please uncomment parameters for AZ3&AZ4 subnet. Enter values in variables.tf
 
     AvailabilityZones       = var.availability_zones  
     NumberOfAZs             = var.az_number
     VPCCIDR                 = var.gwlbvpc_cidr
     PublicSubnet1CIDR       = var.asg_public1
     PublicSubnet2CIDR       = var.asg_public2
- #   PublicSubnet3CIDR       = var.asg_public3
- #   PublicSubnet4CIDR       = var.asg_public4
+ #  PublicSubnet3CIDR       = var.asg_public3
+ #  PublicSubnet4CIDR       = var.asg_public4
     TgwSubnet1CIDR          = var.tgw_subnet1
     TgwSubnet2CIDR          = var.tgw_subnet2
- #   TgwSubnet3CIDR          = var.tgw_subnet3
- #   TgwSubnet4CIDR          = var.tgw_subnet4
+ #  TgwSubnet3CIDR          = var.tgw_subnet3
+ #  TgwSubnet4CIDR          = var.tgw_subnet4
     NatGwSubnet1CIDR        = var.natgw_subnet1
     NatGwSubnet2CIDR        = var.natgw_subnet2
- #   NatGwSubnet3CIDR        = var.natgw_subnet3
- #   NatGwSubnet4CIDR        = var.natgw_subnet4
+ #  NatGwSubnet3CIDR        = var.natgw_subnet3
+ #  NatGwSubnet4CIDR        = var.natgw_subnet4
     GWLBeSubnet1CIDR        = var.gwlbe_subnet1
     GWLBeSubnet2CIDR        = var.gwlbe_subnet2
- #   GWLBeSubnet3CIDR        = var.gwlbe_subnet3
- #   GWLBeSubnet4CIDR        = var.gwlbe_subnet4
+ #  GWLBeSubnet3CIDR        = var.gwlbe_subnet3
+ #  GWLBeSubnet4CIDR        = var.gwlbe_subnet4
 
 # GENERAL CHECKPOINT INSTANCE CONFIGURATION
     KeyName                 = var.key_name
@@ -65,9 +65,9 @@ resource "aws_cloudformation_stack" "cpgwlb" {
 
 # CHECKPOINT MGMT SERVER
     ManagementDeploy        = "false"
-#    ManagementInstanceType  = ""
-#    ManagementVersion       = var.mgmt_version
-#    ManagementPasswordHash  = ""
+#   ManagementInstanceType  = ""
+#   ManagementVersion       = var.mgmt_version
+#   ManagementPasswordHash  = ""
     GatewaysPolicy          = var.gateway_policy
     AdminCIDR               = "0.0.0.0/0"
     GatewayManagement       = var.gateway_management
@@ -153,4 +153,3 @@ resource "aws_route_table_association" "spoke1rt_association" {
   subnet_id      = aws_subnet.spoke1_subnet.id 
   route_table_id = aws_route_table.spoke1_subnet_rt.id
 }
-
