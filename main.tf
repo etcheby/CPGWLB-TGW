@@ -132,7 +132,7 @@ resource "aws_route_table" "spoke1_subnet_rt" {
   # Jump Route from Allowed_Source
   # Comment out if Spoke 1 reacheable privately. No need from a jump route. 
   route {
-    cidr_block = ""
+    cidr_block = "your_whitelisted_pulic_ip"
     gateway_id = aws_internet_gateway.spoke1_igw.id
   }
 
