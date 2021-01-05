@@ -17,5 +17,5 @@ It also deploys:
 
 # Private CME package required for Mgmt to auto-discover the Check Point instances behing the GWLB - 
 
-# Please contact local Check Point Sales Team for Admin Guide for CME configuration as well as post deployment steps. 
+# Solution is currently in EA - Please contact local Check Point Sales Team for Check Point ami to be added to AWS Account, Admin Guide for GWLB CME configuration as well as post deployment steps. 
 
